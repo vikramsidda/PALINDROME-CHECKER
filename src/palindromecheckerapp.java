@@ -1,21 +1,31 @@
-public class palindromecheckerapp {
-    static final String APP_NAME = "Palindrome Checker App";
-    static final String VERSION = "Version 1.0";
 
-    public static void main(String[] args) {
+        import java.util.Scanner;
 
-        // Welcome Message
-        System.out.println("======================================");
-        System.out.println("        " + APP_NAME);
-        System.out.println("        " + VERSION);
-        System.out.println("======================================");
+        public class palindromecheckerapp {
+            public static void main(String[] args){
 
-        System.out.println("Welcome to the Palindrome Checker Application!");
-        System.out.println("This application checks whether a given string is a palindrome.");
-        System.out.println("--------------------------------------");
+                Scanner a = new Scanner(System.in);
 
-        // Program continues to next use case
-        System.out.println("System Ready...");
-    }
-}
+                System.out.print("Enter a word: ");
+                String input = a.nextLine();
+
+                String original = input;
+                boolean isPalindrome = true;
+
+                for(int i = 0; i < input.length() / 2; i++){
+                    if(input.charAt(i) != input.charAt(input.length() - 1 - i)){
+                        isPalindrome = false;
+                        break;
+                    }
+                }
+
+                if(isPalindrome){
+                    System.out.println(original + " is a palindrome");
+                } else {
+                    System.out.println(original + " is not a palindrome");
+                }
+
+                a.close();
+            }
+        }
 
