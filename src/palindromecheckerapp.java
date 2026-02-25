@@ -9,19 +9,29 @@ public class palindromecheckerapp {
         System.out.print("Enter a string: ");
         String input = scanner.nextLine();
 
-        String original = input;
-        String reversed = "";
 
-        // Reverse string using for loop
-        for (int i = input.length() - 1; i >= 0; i--) {
-            reversed = reversed + input.charAt(i);
+        char[] characters = input.toCharArray();
+
+        boolean isPalindrome = true;
+
+        int start = 0;
+        int end = characters.length - 1;
+
+
+        while (start < end) {
+            if (characters[start] != characters[end]) {
+                isPalindrome = false;
+                break;
+            }
+            start++;
+            end--;
         }
 
-        // Compare original and reversed
-        if (original.equals(reversed)) {
-            System.out.println("Result: " + original + " is a Palindrome.");
+
+        if (isPalindrome) {
+            System.out.println("Result: " + input + " is a Palindrome.");
         } else {
-            System.out.println("Result: " + original + " is NOT a Palindrome.");
+            System.out.println("Result: " + input + " is NOT a Palindrome.");
         }
 
         scanner.close();
